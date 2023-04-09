@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "defense_systems",
+  "version": "${version}",
+  "name": "DefenseSystems",
+  "description": "Adds new ways to defend locations to Minecraft",
+  "authors": [
+    "Red050911",
+    "TheStrider0321"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.red050911.defensesystems.client.DefenseSystemsClient"
+    ],
+    "main": [
+      "io.github.red050911.defensesystems.DefenseSystems"
+    ]
+  },
+  "mixins": [
+    "defense_systems.mixins.json"
+  ],
+  "accessWidener": "defense_systems.accesswidener",
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
