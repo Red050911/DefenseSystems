@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "north": "defense_systems:block/anvil_launcher_side",
+    "south": "defense_systems:block/anvil_launcher_side",
+    "east": "defense_systems:block/anvil_launcher_side",
+    "west": "defense_systems:block/anvil_launcher_side",
+    "up": "defense_systems:block/anvil_launcher_top",
+    "down": "defense_systems:block/machine_no_view",
+    "particle": "defense_systems:block/machine_no_view"
+  }
+}

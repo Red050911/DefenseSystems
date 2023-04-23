@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "front": "defense_systems:block/defense_computer_front_no_target",
+    "side": "defense_systems:block/machine_no_view",
+    "top": "defense_systems:block/machine_no_view"
+  }
+}

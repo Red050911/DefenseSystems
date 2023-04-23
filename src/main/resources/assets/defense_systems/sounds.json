@@ -1,0 +1,26 @@
+{
+  "block.defense_systems_generic.bootup": {
+    "subtitle": "subtitles.defense_systems.generic_bootup",
+    "sounds": [
+      "defense_systems:block.defense_systems_generic.bootup"
+    ]
+  },
+  "block.defense_systems_generic.shutdown": {
+    "subtitle": "subtitles.defense_systems.generic_shutdown",
+    "sounds": [
+      "defense_systems:block.defense_systems_generic.shutdown"
+    ]
+  },
+  "block.defense_computer.target": {
+    "subtitle": "subtitles.defense_systems.computer_target",
+    "sounds": [
+      "defense_systems:block.defense_computer.target"
+    ]
+  },
+  "block.defense_computer.lose_target": {
+    "subtitle": "subtitles.defense_systems.computer_lose_target",
+    "sounds": [
+      "defense_systems:block.defense_computer.lose_target"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "defense_systems:block/ir_camera_box"
+  }
+}

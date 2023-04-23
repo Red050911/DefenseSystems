@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "defense_systems:block/anvil_launcher"
+    }
+  }
+}

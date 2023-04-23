@@ -1,0 +1,53 @@
+{
+  "block.defense_systems.defense_computer": "gun cwommand stwuctwure",
+  "block.defense_systems.camera_box": "swecuwity thing",
+  "block.defense_systems.telescopic_camera_box": "swecuwity thingy dat zooms in",
+  "block.defense_systems.ir_camera_box": "kitteh swecuwity thing",
+  "block.defense_systems.telescopic_ir_camera_box": "kitteh swecuwity thing dat zooms in",
+  "block.defense_systems.anvil_launcher": "i can has anvils",
+  "block.defense_systems.turret": "gunz",
+
+  "block_tooltip.defense_systems.defense_computer": "\u00a77where kitteh cwommands gunz",
+  "block_tooltip.defense_systems.camera_box": "\u00a77where kitteh spot cweeper",
+  "block_tooltip.defense_systems.telescopic_camera_box": "\u00a77i can has zooming in?",
+  "block_tooltip.defense_systems.ir_camera_box": "\u00a77dis iz like kitteh vizion",
+  "block_tooltip.defense_systems.telescopic_ir_camera_box": "\u00a77dis iz like kitteh vizion but we can haz zoom in",
+  "block_tooltip.defense_systems.anvil_launcher": "\u00a77yay fwalling mwetal thingy",
+  "block_tooltip.defense_systems.turret": "\u00a77i can has gunz?",
+
+  "itemGroup.defense_systems.mod_group": "kitteh defenze",
+
+  "effect.defense_systems.marked": "kitteh has eyes on you",
+
+  "death.attack.defense_systems_anvil_launcher_fling": "%s chwallenged kitteh anvwil lwaucher tek",
+  "death.attack.defense_systems_anvil_launcher_fling.player": "%1$s chwallenged kitteh anvwil lwaucher tek while chwickening from %2$s",
+  "death.attack.defense_systems_bullet": "%s wuz shot by kitteh",
+  "death.attack.defense_systems_bullet.player": "%1$s wuz shot by kitteh while chwickening from %2$s",
+
+  "msg.defense_systems.added_to_wl": "yay new kitteh, %s",
+  "msg.defense_systems.not_online_or_already_wl": "i can not has new kitteh, not der or not new",
+  "msg.defense_systems.removed_from_wl": "hiss hiss go away %s u not kitteh now",
+  "msg.defense_systems.owner_or_not_wl": "dey either kitteh leader or not kitteh",
+  "msg.defense_systems.not_block_owner": "u not kitteh leader",
+
+  "tooltip.defense_systems.press_shift": "\u00a77paw \u00a7eSHIFT\u00a77 to do stuf",
+
+  "targeting_type.defense_systems.modulo": "evry kitteh gets to shoot stuf",
+  "targeting_type.defense_systems.pbe": "not kittehs, den cweeperz",
+  "targeting_type.defense_systems.ebp": "cweeperz, den not kittehs",
+  "targeting_type.defense_systems.close": "stuf nwear uz",
+  "targeting_type.defense_systems.far": "stuf far away",
+  "targeting_type.defense_systems.strong": "big cweeperz",
+  "targeting_type.defense_systems.weak": "smol cweeperz",
+  "targeting_type.defense_systems.heal": "hit least",
+  "targeting_type.defense_systems.dmg": "hit most",
+  "targeting_type.defense_systems.off": ":(",
+
+  "entity.defense_systems.turret": "gunz",
+  "entity.defense_systems.bullet": "thing dat comez from gunz",
+
+  "subtitles.defense_systems.generic_bootup": "gunz r ready",
+  "subtitles.defense_systems.generic_shutdown": "gunz no work",
+  "subtitles.defense_systems.computer_target": "cwommand stwuctwure seez non-kitteh",
+  "subtitles.defense_systems.computer_lose_target": "cwommand stwuctwure duz not see non-kitteh"
+}

@@ -1,0 +1,53 @@
+{
+  "block.defense_systems.defense_computer": "Ship's Command",
+  "block.defense_systems.camera_box": "Spyglass Box",
+  "block.defense_systems.telescopic_camera_box": "Better Spyglass Box",
+  "block.defense_systems.ir_camera_box": "Dark Seeing Spyglass Box",
+  "block.defense_systems.telescopic_ir_camera_box": "Better Dark Seeing Spyglass Box",
+  "block.defense_systems.anvil_launcher": "Anvil-shaped Cannonball Launcher",
+  "block.defense_systems.turret": "Cannon",
+
+  "block_tooltip.defense_systems.defense_computer": "\u00a77The ship is commanded here",
+  "block_tooltip.defense_systems.camera_box": "\u00a77Best put in a crow's nest! Nights really mess it up!",
+  "block_tooltip.defense_systems.telescopic_camera_box": "\u00a77Now we can focus our spyglass!",
+  "block_tooltip.defense_systems.ir_camera_box": "\u00a77Magic allows this to guide our ship through the night",
+  "block_tooltip.defense_systems.telescopic_ir_camera_box": "\u00a77Arr! We made our best things work together!",
+  "block_tooltip.defense_systems.anvil_launcher": "\u00a77BOOM! Annoying when them landlubbers go indoors.",
+  "block_tooltip.defense_systems.turret": "\u00a77Arr! Fires cannonballs at landlubbers!",
+
+  "itemGroup.defense_systems.mod_group": "Cannons",
+
+  "effect.defense_systems.marked": "Spotted",
+
+  "death.attack.defense_systems_anvil_launcher_fling": "Arr! %s jumped in a cannon!",
+  "death.attack.defense_systems_anvil_launcher_fling.player": "Arr! %1$s jumped in a cannon to run away from %2$s",
+  "death.attack.defense_systems_bullet": "Arr! %s was hit by a cannonball!",
+  "death.attack.defense_systems_bullet.player": "%1$s was hit by a cannonball in an attempt to run away from %2$s, Arr!",
+
+  "msg.defense_systems.added_to_wl": "Arr! %s is now a pirate!",
+  "msg.defense_systems.not_online_or_already_wl": "Arr! Either they don't exist, or they already one of us.",
+  "msg.defense_systems.removed_from_wl": "Arr! We made %s walk the plank!",
+  "msg.defense_systems.owner_or_not_wl": "Arr! Either they're the captain or they're not one of us!",
+  "msg.defense_systems.not_block_owner": "Go away, landlubber! Yer not arr Captain!",
+
+  "tooltip.defense_systems.press_shift": "\u00a77Tap \u00a7eSHIFT\u00a77 to read what it does",
+
+  "targeting_type.defense_systems.modulo": "Round",
+  "targeting_type.defense_systems.pbe": "Landlubbers, then creatures",
+  "targeting_type.defense_systems.ebp": "Creatures, then landlubbers",
+  "targeting_type.defense_systems.close": "Whatever is easiest to shoot",
+  "targeting_type.defense_systems.far": "Whatever is hardest to shoot",
+  "targeting_type.defense_systems.strong": "The toughest creatures",
+  "targeting_type.defense_systems.weak": "The weakest creatures",
+  "targeting_type.defense_systems.heal": "The ones never touched",
+  "targeting_type.defense_systems.dmg": "The ones we hit with cannons",
+  "targeting_type.defense_systems.off": "No cannons",
+
+  "entity.defense_systems.turret": "Cannon",
+  "entity.defense_systems.bullet": "Cannonball",
+
+  "subtitles.defense_systems.generic_bootup": "Cannons are ready to fire",
+  "subtitles.defense_systems.generic_shutdown": "Cannons are down",
+  "subtitles.defense_systems.computer_target": "Ship's command has found a landlubber",
+  "subtitles.defense_systems.computer_lose_target": "Ship's command lost 'em"
+}

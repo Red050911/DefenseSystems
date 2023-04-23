@@ -1,5 +1,53 @@
 {
+  "block.defense_systems.defense_computer": "Defense Computer",
+  "block.defense_systems.camera_box": "Security Camera Box",
+  "block.defense_systems.telescopic_camera_box": "Telescopic Security Camera Box",
+  "block.defense_systems.ir_camera_box": "IR Security Camera Box",
+  "block.defense_systems.telescopic_ir_camera_box": "Telescopic IR Security Camera Box",
+  "block.defense_systems.anvil_launcher": "Anvil Launcher",
+  "block.defense_systems.turret": "Turret",
 
-  "effect.defense_systems.marked": "Marked"
+  "block_tooltip.defense_systems.defense_computer": "\u00a77The heart of any defense system. Has a 128 block range.",
+  "block_tooltip.defense_systems.camera_box": "\u00a77Sees enemies! Works amazing until it's night.",
+  "block_tooltip.defense_systems.telescopic_camera_box": "\u00a77Zooms in on targets, seeing them from farther away!",
+  "block_tooltip.defense_systems.ir_camera_box": "\u00a77Uses IR tech to see in the dark!",
+  "block_tooltip.defense_systems.telescopic_ir_camera_box": "\u00a77Uses IR... AND zooms in? Awesome!",
+  "block_tooltip.defense_systems.anvil_launcher": "\u00a77Anvil time! Too bad hiding under a roof blocks them...",
+  "block_tooltip.defense_systems.turret": "\u00a77Shoots at enemies. That's about it.",
 
+  "itemGroup.defense_systems.mod_group": "Defense Systems",
+
+  "effect.defense_systems.marked": "Marked",
+
+  "death.attack.defense_systems_anvil_launcher_fling": "%s thought it was OK to stand on top of heavy artillery",
+  "death.attack.defense_systems_anvil_launcher_fling.player": "%1$s stood on top of heavy artillery while running away from %2$s",
+  "death.attack.defense_systems_bullet": "%s got gunned down",
+  "death.attack.defense_systems_bullet.player": "%1$s got gunned down while running away from %2$s",
+
+  "msg.defense_systems.added_to_wl": "Success! %s added to whitelist.",
+  "msg.defense_systems.not_online_or_already_wl": "That player isn't online or is already whitelisted.",
+  "msg.defense_systems.removed_from_wl": "Success! %s removed from whitelist.",
+  "msg.defense_systems.owner_or_not_wl": "That player is the block owner or isn't on the whitelist.",
+  "msg.defense_systems.not_block_owner": "You are not the block owner.",
+
+  "tooltip.defense_systems.press_shift": "\u00a77Press \u00a7eSHIFT\u00a77 to view tooltip",
+
+  "targeting_type.defense_systems.modulo": "Basic Modulo Targeting",
+  "targeting_type.defense_systems.pbe": "Players, then Entities",
+  "targeting_type.defense_systems.ebp": "Entities, then Players",
+  "targeting_type.defense_systems.close": "Closest",
+  "targeting_type.defense_systems.far": "Farthest",
+  "targeting_type.defense_systems.strong": "Strongest",
+  "targeting_type.defense_systems.weak": "Weakest",
+  "targeting_type.defense_systems.heal": "Most HP",
+  "targeting_type.defense_systems.dmg": "Most Damaged",
+  "targeting_type.defense_systems.off": "Defense Off",
+
+  "entity.defense_systems.turret": "Turret",
+  "entity.defense_systems.bullet": "Bullet",
+
+  "subtitles.defense_systems.generic_bootup": "Defense mechanism boots up",
+  "subtitles.defense_systems.generic_shutdown": "Defense mechanism shuts down",
+  "subtitles.defense_systems.computer_target": "Defense computer finds target",
+  "subtitles.defense_systems.computer_lose_target": "Defense computer loses target"
 }

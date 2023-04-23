@@ -5,12 +5,15 @@
   "name": "DefenseSystems",
   "description": "Adds new ways to defend locations to Minecraft",
   "authors": [
-    "Red050911",
-    "TheStrider0321"
+    "Red050911"
   ],
-  "contact": {},
+  "contact": {
+    "sources": "https://github.com/Red050911/DefenseSystems",
+    "issues": "https://github.com/Red050911/DefenseSystems/issues"
+  },
   "license": "MIT",
   "environment": "*",
+  "icon": "assets/defense_systems/icon.png",
   "entrypoints": {
     "client": [
       "io.github.red050911.defensesystems.client.DefenseSystemsClient"

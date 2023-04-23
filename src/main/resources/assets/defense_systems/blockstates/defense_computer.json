@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "targeting=false,facing=north": {
+      "model": "defense_systems:block/defense_computer"
+    },
+    "targeting=false,facing=east": {
+      "model": "defense_systems:block/defense_computer",
+      "y": 90
+    },
+    "targeting=false,facing=south": {
+      "model": "defense_systems:block/defense_computer",
+      "y": 180
+    },
+    "targeting=false,facing=west": {
+      "model": "defense_systems:block/defense_computer",
+      "y": 270
+    },
+    "targeting=true,facing=north": {
+      "model": "defense_systems:block/defense_computer_targeting"
+    },
+    "targeting=true,facing=east": {
+      "model": "defense_systems:block/defense_computer_targeting",
+      "y": 90
+    },
+    "targeting=true,facing=south": {
+      "model": "defense_systems:block/defense_computer_targeting",
+      "y": 180
+    },
+    "targeting=true,facing=west": {
+      "model": "defense_systems:block/defense_computer_targeting",
+      "y": 270
+    }
+  }
+}
