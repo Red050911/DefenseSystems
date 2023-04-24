@@ -9,7 +9,8 @@
   ],
   "contact": {
     "sources": "https://github.com/Red050911/DefenseSystems",
-    "issues": "https://github.com/Red050911/DefenseSystems/issues"
+    "issues": "https://github.com/Red050911/DefenseSystems/issues",
+    "homepage": "https://modrinth.com/mod/defense-systems"
   },
   "license": "MIT",
   "environment": "*",
