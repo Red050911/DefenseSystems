@@ -30,6 +30,9 @@ public class ModBlocks {
     public static Block TURRET_BLOCK;
     public static Item TURRET_BLOCK_ITEM;
 
+    public static Block RADAR_BLOCK;
+    public static Item RADAR_BLOCK_ITEM;
+
     public static void register() {
         DEFENSE_COMPUTER_BLOCK = Registry.register(Registry.BLOCK, DefenseSystems.id("defense_computer"), new DefenseComputerBlock());
         DEFENSE_COMPUTER_BLOCK_ITEM = Registry.register(Registry.ITEM, DefenseSystems.id("defense_computer"), new TooltipBlockItem(DEFENSE_COMPUTER_BLOCK, new Item.Settings().group(ModItemGroups.MOD_IG)));
@@ -51,6 +54,9 @@ public class ModBlocks {
 
         TURRET_BLOCK = Registry.register(Registry.BLOCK, DefenseSystems.id("turret"), new TurretBlock());
         TURRET_BLOCK_ITEM = Registry.register(Registry.ITEM, DefenseSystems.id("turret"), new TooltipBlockItem(TURRET_BLOCK, new Item.Settings().group(ModItemGroups.MOD_IG)));
+
+        RADAR_BLOCK = Registry.register(Registry.BLOCK, DefenseSystems.id("radar"), new RadarBlock());
+        RADAR_BLOCK_ITEM = Registry.register(Registry.ITEM, DefenseSystems.id("radar"), new TooltipBlockItem(RADAR_BLOCK, new Item.Settings().group(ModItemGroups.MOD_IG)));
     }
 
 }

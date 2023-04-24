@@ -3,12 +3,12 @@
 # [![Requires Fabric API](https://i.imgur.com/Ol1Tcf8.png)](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 Defense Systems is a Minecraft mod that adds more ways to defend locations, such as bases, against monsters and enemy players.
 ## MC Version Support
-|MC Version|Latest Mod Version|Status |Content Version Number|
-|----------|------------------|-------|----------------------|
-|1.16.5    |1.16.5-1.0.0      |Active |1                     |
-|1.17.1    |N/A               |Planned|N/A                   |
-|1.18.2    |N/A               |Planned|N/A                   |
-|1.19.4    |N/A               |Planned|N/A                   |
+| MC Version | Latest Mod Version | Status  | Content Version Number |
+|------------|--------------------|---------|------------------------|
+| 1.16.5     | 1.16.5-1.0.0       | Active  | 1                      |
+| 1.17.1     | N/A                | Planned | N/A                    |
+| 1.18.2     | N/A                | Planned | N/A                    |
+| 1.19.4     | N/A                | Planned | N/A                    |
 ## FAQ
 ### Will you support Forge?
 **Short answer**: No.\

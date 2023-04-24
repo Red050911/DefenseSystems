@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "rhr",
+    "iti"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "h": {
+      "item": "minecraft:anvil"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "t": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "defense_systems:anvil_launcher",
+    "count": 1
+  }
+}

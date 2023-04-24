@@ -6,6 +6,7 @@
   "block.defense_systems.telescopic_ir_camera_box": "Telescopic IR Security Camera Box",
   "block.defense_systems.anvil_launcher": "Anvil Launcher",
   "block.defense_systems.turret": "Turret",
+  "block.defense_systems.radar": "Radar",
 
   "block_tooltip.defense_systems.defense_computer": "\u00a77The heart of any defense system. Has a 128 block range.",
   "block_tooltip.defense_systems.camera_box": "\u00a77Sees enemies! Works amazing until it's night.",
@@ -14,6 +15,7 @@
   "block_tooltip.defense_systems.telescopic_ir_camera_box": "\u00a77Uses IR... AND zooms in? Awesome!",
   "block_tooltip.defense_systems.anvil_launcher": "\u00a77Anvil time! Too bad hiding under a roof blocks them...",
   "block_tooltip.defense_systems.turret": "\u00a77Shoots at enemies. That's about it.",
+  "block_tooltip.defense_systems.radar": "\u00a77Spots enemies at 25-block ranges through blocks.",
 
   "itemGroup.defense_systems.mod_group": "Defense Systems",
 
@@ -49,5 +51,8 @@
   "subtitles.defense_systems.generic_bootup": "Defense mechanism boots up",
   "subtitles.defense_systems.generic_shutdown": "Defense mechanism shuts down",
   "subtitles.defense_systems.computer_target": "Defense computer finds target",
-  "subtitles.defense_systems.computer_lose_target": "Defense computer loses target"
+  "subtitles.defense_systems.computer_lose_target": "Defense computer loses target",
+
+  "enchantment.defense_systems.ir_blocking": "Infrared Blocking",
+  "enchantment.defense_systems.radar_blocking": "Radio Jamming"
 }

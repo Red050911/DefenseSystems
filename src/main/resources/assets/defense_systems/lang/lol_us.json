@@ -6,6 +6,7 @@
   "block.defense_systems.telescopic_ir_camera_box": "kitteh swecuwity thing dat zooms in",
   "block.defense_systems.anvil_launcher": "i can has anvils",
   "block.defense_systems.turret": "gunz",
+  "block.defense_systems.radar": "invizible wavez thingy",
 
   "block_tooltip.defense_systems.defense_computer": "\u00a77where kitteh cwommands gunz",
   "block_tooltip.defense_systems.camera_box": "\u00a77where kitteh spot cweeper",
@@ -14,6 +15,7 @@
   "block_tooltip.defense_systems.telescopic_ir_camera_box": "\u00a77dis iz like kitteh vizion but we can haz zoom in",
   "block_tooltip.defense_systems.anvil_launcher": "\u00a77yay fwalling mwetal thingy",
   "block_tooltip.defense_systems.turret": "\u00a77i can has gunz?",
+  "block_tooltip.defense_systems.radar": "\u00a77it haz eyez everywhere",
 
   "itemGroup.defense_systems.mod_group": "kitteh defenze",
 
@@ -49,5 +51,8 @@
   "subtitles.defense_systems.generic_bootup": "gunz r ready",
   "subtitles.defense_systems.generic_shutdown": "gunz no work",
   "subtitles.defense_systems.computer_target": "cwommand stwuctwure seez non-kitteh",
-  "subtitles.defense_systems.computer_lose_target": "cwommand stwuctwure duz not see non-kitteh"
+  "subtitles.defense_systems.computer_lose_target": "cwommand stwuctwure duz not see non-kitteh",
+
+  "enchantment.defense_systems.ir_blocking": "hot thingy stopper",
+  "enchantment.defense_systems.radar_blocking": "stop da invizible wavez"
 }

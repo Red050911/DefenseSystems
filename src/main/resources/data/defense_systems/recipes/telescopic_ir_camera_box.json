@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rgr",
+    "gig",
+    "rgr"
+  ],
+  "key": {
+    "i": {
+      "item": "defense_systems:ir_camera_box"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "g": {
+      "item": "minecraft:red_stained_glass"
+    }
+  },
+  "result": {
+    "item": "defense_systems:telescopic_ir_camera_box",
+    "count": 1
+  }
+}

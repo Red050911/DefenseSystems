@@ -6,6 +6,7 @@
   "block.defense_systems.telescopic_ir_camera_box": "Better Dark Seeing Spyglass Box",
   "block.defense_systems.anvil_launcher": "Anvil-shaped Cannonball Launcher",
   "block.defense_systems.turret": "Cannon",
+  "block.defense_systems.radar": "Multi-directional X-ray spyglass",
 
   "block_tooltip.defense_systems.defense_computer": "\u00a77The ship is commanded here",
   "block_tooltip.defense_systems.camera_box": "\u00a77Best put in a crow's nest! Nights really mess it up!",
@@ -14,6 +15,7 @@
   "block_tooltip.defense_systems.telescopic_ir_camera_box": "\u00a77Arr! We made our best things work together!",
   "block_tooltip.defense_systems.anvil_launcher": "\u00a77BOOM! Annoying when them landlubbers go indoors.",
   "block_tooltip.defense_systems.turret": "\u00a77Arr! Fires cannonballs at landlubbers!",
+  "block_tooltip.defense_systems.radar": "\u00a77Can see through everything! Arr!",
 
   "itemGroup.defense_systems.mod_group": "Cannons",
 
@@ -49,5 +51,8 @@
   "subtitles.defense_systems.generic_bootup": "Cannons are ready to fire",
   "subtitles.defense_systems.generic_shutdown": "Cannons are down",
   "subtitles.defense_systems.computer_target": "Ship's command has found a landlubber",
-  "subtitles.defense_systems.computer_lose_target": "Ship's command lost 'em"
+  "subtitles.defense_systems.computer_lose_target": "Ship's command lost 'em",
+
+  "enchantment.defense_systems.ir_blocking": "Giveaway Light Blockade",
+  "enchantment.defense_systems.radar_blocking": "Advanced Landlubber Tech Stopper"
 }

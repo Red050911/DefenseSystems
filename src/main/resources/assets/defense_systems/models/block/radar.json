@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "north": "defense_systems:block/machine_no_view",
+    "south": "defense_systems:block/machine_no_view",
+    "east": "defense_systems:block/machine_no_view",
+    "west": "defense_systems:block/machine_no_view",
+    "up": "defense_systems:block/radar_top",
+    "down": "defense_systems:block/machine_no_view",
+    "particle": "defense_systems:block/machine_no_view"
+  }
+}

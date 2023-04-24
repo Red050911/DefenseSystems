@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rgr",
+    "gcg",
+    "rgr"
+  ],
+  "key": {
+    "c": {
+      "item": "defense_systems:camera_box"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "defense_systems:telescopic_camera_box",
+    "count": 1
+  }
+}
