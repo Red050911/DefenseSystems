@@ -2,31 +2,23 @@ package io.github.red050911.defensesystems.obj.blockentity;
 
 import io.github.red050911.defensesystems.obj.entity.TurretEntity;
 import io.github.red050911.defensesystems.reg.ModBlockEntityTypes;
-import io.github.red050911.defensesystems.reg.ModEntityTypes;
 import io.github.red050911.defensesystems.reg.ModSoundEvents;
 import io.github.red050911.defensesystems.util.IDefenseTickable;
-import io.github.red050911.defensesystems.util.ModDamageSource;
-import io.github.red050911.defensesystems.util.Util;
-import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
-import java.util.List;
 import java.util.UUID;
 
-public class TurretBlockEntity extends BlockEntity implements IDefenseTickable, Tickable {
+public class TurretBlockEntity extends BlockEntity implements IDefenseTickable {
 
     private int lastTickFromDefenseComputer;
     private int dcX;
@@ -35,8 +27,8 @@ public class TurretBlockEntity extends BlockEntity implements IDefenseTickable, 
     private UUID ownerID;
     private UUID entityID;
 
-    public TurretBlockEntity(BlockEntityType<?> type) {
-        super(type);
+    public TurretBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
         lastTickFromDefenseComputer = -1;
         dcX = -1;
         dcY = -1;
@@ -45,8 +37,8 @@ public class TurretBlockEntity extends BlockEntity implements IDefenseTickable, 
         entityID = null;
     }
 
-    public TurretBlockEntity() {
-        this(ModBlockEntityTypes.TURRET);
+    public TurretBlockEntity(BlockPos pos, BlockState state) {
+        this(ModBlockEntityTypes.TURRET, pos, state);
     }
 
     @Override
@@ -58,7 +50,7 @@ public class TurretBlockEntity extends BlockEntity implements IDefenseTickable, 
             if(shouldBeUp != isUp) {
                 if(isUp) {
                     Entity e = ((ServerWorld) world).getEntity(entityID);
-                    if(e instanceof TurretEntity) e.remove();
+                    if(e instanceof TurretEntity) e.remove(Entity.RemovalReason.DISCARDED);
                     entityID = null;
                     world.playSound(null, pos, SoundEvents.BLOCK_PISTON_CONTRACT, SoundCategory.BLOCKS, 1, 1);
                 } else {
@@ -81,7 +73,7 @@ public class TurretBlockEntity extends BlockEntity implements IDefenseTickable, 
     public void markRemoved() {
         if(world instanceof ServerWorld && entityID != null) {
             Entity e = ((ServerWorld) world).getEntity(entityID);
-            if(e instanceof TurretEntity) e.remove();
+            if(e instanceof TurretEntity) e.remove(Entity.RemovalReason.DISCARDED);
             entityID = null;
         }
         super.markRemoved();
@@ -111,13 +103,12 @@ public class TurretBlockEntity extends BlockEntity implements IDefenseTickable, 
         return lastTickFromDefenseComputer > -1;
     }
 
-    @Override
-    public void tick() {
+    public void tick(BlockPos pos) {
         if(isInitializedAtAll()) if(lastTickFromDefenseComputer++ >= 10) {
             lastTickFromDefenseComputer = -1;
             if(world instanceof ServerWorld && entityID != null) {
                 Entity e = ((ServerWorld) world).getEntity(entityID);
-                if(e instanceof TurretEntity) e.remove();
+                if(e instanceof TurretEntity) e.remove(Entity.RemovalReason.DISCARDED);
                 entityID = null;
             }
             if(world instanceof ServerWorld) world.playSound(null, pos, ModSoundEvents.GENERIC_SHUTDOWN, SoundCategory.BLOCKS, 1f, 1f);
@@ -129,16 +120,19 @@ public class TurretBlockEntity extends BlockEntity implements IDefenseTickable, 
         markDirty();
     }
 
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         nbt.putUuid("BlockOwner", ownerID);
-        return nbt;
     }
 
     @Override
-    public void fromTag(BlockState state, NbtCompound tag) {
-        super.fromTag(state, tag);
+    public void readNbt(NbtCompound tag) {
+        super.readNbt(tag);
         if(tag.containsUuid("BlockOwner")) ownerID = tag.getUuid("BlockOwner");
+    }
+
+    public static void tick(World world, BlockPos pos, BlockState state, TurretBlockEntity be) {
+        be.tick(pos);
     }
 
 }

@@ -58,7 +58,7 @@ public class Util {
         FallingBlockEntity entity = new FallingBlockEntity(world, pos.x, pos.y, pos.z, Blocks.ANVIL.getDefaultState());
         entity.destroyedOnLanding = true;
         entity.timeFalling = 1;
-        entity.setHurtEntities(true);
+        entity.setHurtEntities(2.0f, 40);
         world.spawnEntity(entity);
         float v1 = v * 0.005f;
         entity.addVelocity(0, -v1, 0);

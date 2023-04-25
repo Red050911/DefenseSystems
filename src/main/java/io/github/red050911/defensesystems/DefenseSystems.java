@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.chunk.BlockEntityTickInvoker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -39,7 +40,8 @@ public class DefenseSystems implements ModInitializer {
         LOGGER.info("Registering listener for ServerPlayConnectionEvents.JOIN");
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             for(ServerWorld sw : server.getWorlds()) {
-                for(BlockEntity be : sw.blockEntities) {
+                for(BlockEntityTickInvoker beTickInvoker : sw.blockEntityTickers) {
+                    BlockEntity be = sw.getBlockEntity(beTickInvoker.getPos());
                     if(be instanceof DefenseComputerBlockEntity) {
                         ((DefenseComputerBlockEntity) be).onPlayerJoin(handler.player);
                     }

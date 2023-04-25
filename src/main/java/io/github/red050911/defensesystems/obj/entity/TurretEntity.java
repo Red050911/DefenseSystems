@@ -36,7 +36,7 @@ public class TurretEntity extends MobEntity {
         super.tick();
         noClip = true;
         if(!world.isClient()) {
-            if(lastTickFromBlock++ > 10) remove();
+            if(lastTickFromBlock++ > 10) remove(RemovalReason.DISCARDED);
         }
     }
 
@@ -58,7 +58,7 @@ public class TurretEntity extends MobEntity {
             if(fireThisTick) {
                 BulletProjectile e = new BulletProjectile(this, world);
                 e.setItem(new ItemStack(ModItems.BULLET_ITEM));
-                e.setProperties(this, this.pitch, this.headYaw, 0, 1.5f, 0);
+                e.setVelocity(this, this.getPitch(), this.headYaw, 0, 1.5f, 0);
                 world.spawnEntity(e);
             }
             fireThisTick = !fireThisTick;

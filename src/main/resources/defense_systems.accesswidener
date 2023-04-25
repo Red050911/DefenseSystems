@@ -1,3 +1,5 @@
 accessWidener v1 named
 
 accessible field net/minecraft/entity/FallingBlockEntity destroyedOnLanding Z
+accessible method net/minecraft/entity/FallingBlockEntity <init> (Lnet/minecraft/world/World;DDDLnet/minecraft/block/BlockState;)V
+accessible field net/minecraft/world/World blockEntityTickers Ljava/util/List;

@@ -7,6 +7,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -30,8 +32,8 @@ public class CameraBoxBlock extends BlockWithEntity {
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockView world) {
-        CameraBoxBlockEntity be = ModBlockEntityTypes.CAMERA_BOX.instantiate();
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        CameraBoxBlockEntity be = ModBlockEntityTypes.CAMERA_BOX.instantiate(pos, state);
         if(be != null) {
             be.setTelescopic(telescopic);
             be.setSeesInvisPlayers(seesInvis);
@@ -52,6 +54,12 @@ public class CameraBoxBlock extends BlockWithEntity {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, ModBlockEntityTypes.CAMERA_BOX, CameraBoxBlockEntity::tick);
     }
 
 }

@@ -4,6 +4,8 @@ import io.github.red050911.defensesystems.obj.blockentity.DefenseComputerBlockEn
 import io.github.red050911.defensesystems.reg.ModBlockEntityTypes;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -36,8 +38,8 @@ public class DefenseComputerBlock extends BlockWithEntity {
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockView world) {
-        return ModBlockEntityTypes.DEFENSE_COMPUTER.instantiate();
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return ModBlockEntityTypes.DEFENSE_COMPUTER.instantiate(pos, state);
     }
 
     @Override
@@ -77,6 +79,12 @@ public class DefenseComputerBlock extends BlockWithEntity {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, ModBlockEntityTypes.DEFENSE_COMPUTER, DefenseComputerBlockEntity::tick);
     }
 
 }

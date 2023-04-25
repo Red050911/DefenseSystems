@@ -20,10 +20,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.TextColor;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,26 +31,25 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class DefenseComputerBlockEntity extends BlockEntity implements Tickable {
+public class DefenseComputerBlockEntity extends BlockEntity {
 
     private UUID ownerID;
     private final List<StoredPlayerData> whitelist;
     private boolean hasCheckedLKU;
     private TargetingType targeting;
 
-    public DefenseComputerBlockEntity(BlockEntityType<?> type) {
-        super(type);
+    public DefenseComputerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
         whitelist = new ArrayList<>();
         hasCheckedLKU = false;
         targeting = TargetingType.BASIC_MODULO;
     }
 
-    public DefenseComputerBlockEntity() {
-        this(ModBlockEntityTypes.DEFENSE_COMPUTER);
+    public DefenseComputerBlockEntity(BlockPos pos, BlockState state) {
+        this(ModBlockEntityTypes.DEFENSE_COMPUTER, pos, state);
     }
 
-    @Override
-    public void tick() {
+    public void tick(BlockPos pos, BlockState state, World world) {
         if(world != null && !world.isClient()) {
             if(!hasCheckedLKU) {
                 hasCheckedLKU = true;
@@ -62,7 +61,7 @@ public class DefenseComputerBlockEntity extends BlockEntity implements Tickable 
                 if(sMD) markDirty();
             }
             Box zone = new Box(pos).expand(128);
-            zone = new Box(zone.minX, 0, zone.minZ, zone.maxX, world.getDimensionHeight() - 1, zone.maxZ);
+            zone = new Box(zone.minX, world.getBottomY(), zone.minZ, zone.maxX, world.getTopY(), zone.maxZ);
             List<BlockEntity> surveillance = Util.getBlockEntities(world, zone, be -> be instanceof ISurveillanceTickable);
             for(BlockEntity be : surveillance) {
                 ISurveillanceTickable tickable = (ISurveillanceTickable) be;
@@ -74,7 +73,6 @@ public class DefenseComputerBlockEntity extends BlockEntity implements Tickable 
                 tickable.tickFind(this, zone);
             }
             List<LivingEntity> targets = world.getEntitiesByClass(LivingEntity.class, zone, e -> e.hasStatusEffect(ModStatusEffects.MARKED) && !(e instanceof PlayerEntity && isWhitelisted(e.getUuid())));
-            BlockState state = world.getBlockState(pos);
             if(state.get(DefenseComputerBlock.TARGETING) == targets.isEmpty()) {
                 world.setBlockState(pos, state.with(DefenseComputerBlock.TARGETING, !targets.isEmpty()));
                 world.playSound(null, pos, targets.isEmpty() ? ModSoundEvents.COMPUTER_LOSE_TARGET : ModSoundEvents.COMPUTER_TARGET, SoundCategory.BLOCKS, 1f, 1f);
@@ -119,7 +117,7 @@ public class DefenseComputerBlockEntity extends BlockEntity implements Tickable 
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         NbtList wl = new NbtList();
         for(StoredPlayerData spd : whitelist) {
@@ -130,12 +128,11 @@ public class DefenseComputerBlockEntity extends BlockEntity implements Tickable 
         nbt.put("BlockWhitelist", wl);
         nbt.putUuid("BlockOwner", ownerID);
         nbt.putInt("Targeting", targeting.ordinal());
-        return nbt;
     }
 
     @Override
-    public void fromTag(BlockState state, NbtCompound tag) {
-        super.fromTag(state, tag);
+    public void readNbt(NbtCompound tag) {
+        super.readNbt(tag);
         if(tag.contains("BlockWhitelist", NbtType.LIST)) {
             this.whitelist.clear();
             NbtList nL = tag.getList("BlockWhitelist" , NbtType.COMPOUND);
@@ -192,6 +189,9 @@ public class DefenseComputerBlockEntity extends BlockEntity implements Tickable 
         markDirty();
     }
 
+    public static void tick(World world, BlockPos pos, BlockState state, DefenseComputerBlockEntity be) {
+        be.tick(pos, state, world);
+    }
     
     public enum TargetingType {
         

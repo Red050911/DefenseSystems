@@ -4,10 +4,7 @@ import io.github.red050911.defensesystems.reg.ModBlockEntityTypes;
 import io.github.red050911.defensesystems.reg.ModEnchantments;
 import io.github.red050911.defensesystems.reg.ModSoundEvents;
 import io.github.red050911.defensesystems.reg.ModStatusEffects;
-import io.github.red050911.defensesystems.util.BiomeColorMap;
 import io.github.red050911.defensesystems.util.ISurveillanceTickable;
-import io.github.red050911.defensesystems.util.Util;
-import io.github.red050911.defensesystems.util.compat.ReflectivePehkuiInterface;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -15,23 +12,21 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.DyeableArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.util.Tickable;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class RadarBlockEntity extends BlockEntity implements ISurveillanceTickable, Tickable {
+public class RadarBlockEntity extends BlockEntity implements ISurveillanceTickable {
 
     private int lastTickFromDefenseComputer;
     private int dcX;
@@ -39,8 +34,8 @@ public class RadarBlockEntity extends BlockEntity implements ISurveillanceTickab
     private int dcZ;
     private UUID ownerID;
 
-    public RadarBlockEntity(BlockEntityType<?> type) {
-        super(type);
+    public RadarBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
         lastTickFromDefenseComputer = -1;
         dcX = -1;
         dcY = -1;
@@ -48,8 +43,8 @@ public class RadarBlockEntity extends BlockEntity implements ISurveillanceTickab
         ownerID = null;
     }
 
-    public RadarBlockEntity() {
-        this(ModBlockEntityTypes.RADAR);
+    public RadarBlockEntity(BlockPos pos, BlockState state) {
+        this(ModBlockEntityTypes.RADAR, pos, state);
     }
 
     @Override
@@ -101,8 +96,7 @@ public class RadarBlockEntity extends BlockEntity implements ISurveillanceTickab
         return lastTickFromDefenseComputer > -1;
     }
 
-    @Override
-    public void tick() {
+    public void tick(BlockPos pos) {
         if(isInitializedAtAll()) if(lastTickFromDefenseComputer++ >= 10) {
             lastTickFromDefenseComputer = -1;
             if(world instanceof ServerWorld) world.playSound(null, pos, ModSoundEvents.GENERIC_SHUTDOWN, SoundCategory.BLOCKS, 1f, 1f);
@@ -114,18 +108,21 @@ public class RadarBlockEntity extends BlockEntity implements ISurveillanceTickab
         markDirty();
     }
 
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         nbt.putUuid("BlockOwner", ownerID);
-        return nbt;
     }
 
     @Override
-    public void fromTag(BlockState state, NbtCompound tag) {
-        super.fromTag(state, tag);
+    public void readNbt(NbtCompound tag) {
+        super.readNbt(tag);
         if (tag.containsUuid("BlockOwner")) {
             ownerID = tag.getUuid("BlockOwner");
         }
+    }
+
+    public static void tick(World world, BlockPos pos, BlockState state, RadarBlockEntity be) {
+        be.tick(pos);
     }
 
 }
