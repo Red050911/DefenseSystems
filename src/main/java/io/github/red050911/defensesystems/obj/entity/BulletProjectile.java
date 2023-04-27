@@ -1,8 +1,8 @@
 package io.github.red050911.defensesystems.obj.entity;
 
+import io.github.red050911.defensesystems.reg.ModDamageTypes;
 import io.github.red050911.defensesystems.reg.ModEntityTypes;
 import io.github.red050911.defensesystems.reg.ModItems;
-import io.github.red050911.defensesystems.util.ModDamageSource;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -30,7 +30,7 @@ public class BulletProjectile extends ThrownItemEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity e = entityHitResult.getEntity();
-        e.damage(new ModDamageSource("defense_systems_bullet"), 3);
+        e.damage(ModDamageTypes.getSource(world, ModDamageTypes.BULLET), 3);
     }
 
     @Override

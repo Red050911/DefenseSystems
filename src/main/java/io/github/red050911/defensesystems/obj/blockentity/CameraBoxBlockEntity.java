@@ -4,7 +4,6 @@ import io.github.red050911.defensesystems.reg.ModBlockEntityTypes;
 import io.github.red050911.defensesystems.reg.ModEnchantments;
 import io.github.red050911.defensesystems.reg.ModSoundEvents;
 import io.github.red050911.defensesystems.reg.ModStatusEffects;
-import io.github.red050911.defensesystems.util.BiomeColorMap;
 import io.github.red050911.defensesystems.util.ISurveillanceTickable;
 import io.github.red050911.defensesystems.util.Util;
 import io.github.red050911.defensesystems.util.compat.ReflectivePehkuiInterface;
@@ -20,12 +19,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeableArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
@@ -74,7 +74,7 @@ public class CameraBoxBlockEntity extends BlockEntity implements ISurveillanceTi
                 else scalePass = ReflectivePehkuiInterface.getPehkuiScale(le) > 0.125f || le.getPos().distanceTo(new Vec3d(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5)) <= 10;
                 boolean invisPass;
                 if(!seesInvisPlayers) {
-                    int camo = BiomeColorMap.toCamoColor(Biome.getCategory(world.getBiome(le.getBlockPos())));
+                    int camo = 6192150;
                     boolean dyedArmor = true;
                     for(ItemStack armor : le.getArmorItems()) {
                         if(!(armor.getItem() instanceof DyeableArmorItem && ((DyeableArmorItem) armor.getItem()).getColor(armor) == camo)) {
@@ -85,7 +85,7 @@ public class CameraBoxBlockEntity extends BlockEntity implements ISurveillanceTi
                     invisPass = !dyedArmor && !le.hasStatusEffect(StatusEffects.INVISIBILITY);
                 } else {
                     boolean irBlocking = true;
-                    String irBlockingId = Objects.requireNonNull(Registry.ENCHANTMENT.getId(ModEnchantments.IR_BLOCKING)).toString();
+                    String irBlockingId = Objects.requireNonNull(Registries.ENCHANTMENT.getId(ModEnchantments.IR_BLOCKING)).toString();
                     for(ItemStack armor : le.getArmorItems()) {
                         if(armor.getEnchantments().stream().noneMatch(e -> e instanceof NbtCompound && ((NbtCompound) e).contains("id", NbtType.STRING) && ((NbtCompound) e).getString("id").equals(irBlockingId))) {
                             irBlocking = false;

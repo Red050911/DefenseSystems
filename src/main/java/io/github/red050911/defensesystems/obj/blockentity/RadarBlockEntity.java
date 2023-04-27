@@ -15,11 +15,12 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -58,7 +59,7 @@ public class RadarBlockEntity extends BlockEntity implements ISurveillanceTickab
             });
             for(LivingEntity le : targets) {
                 boolean radarBlocking = true;
-                String radarBlockingId = Objects.requireNonNull(Registry.ENCHANTMENT.getId(ModEnchantments.RADAR_BLOCKING)).toString();
+                String radarBlockingId = Objects.requireNonNull(Registries.ENCHANTMENT.getId(ModEnchantments.RADAR_BLOCKING)).toString();
                 for(ItemStack armor : le.getArmorItems()) {
                     if(armor.getEnchantments().stream().noneMatch(e -> e instanceof NbtCompound && ((NbtCompound) e).contains("id", NbtType.STRING) && ((NbtCompound) e).getString("id").equals(radarBlockingId))) {
                         radarBlocking = false;

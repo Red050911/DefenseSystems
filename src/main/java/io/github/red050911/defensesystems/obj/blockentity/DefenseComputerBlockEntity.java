@@ -18,8 +18,9 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
@@ -55,7 +56,7 @@ public class DefenseComputerBlockEntity extends BlockEntity {
                 hasCheckedLKU = true;
                 boolean sMD = false;
                 for(ServerPlayerEntity spe : Objects.requireNonNull(world.getServer()).getPlayerManager().getPlayerList()) for(StoredPlayerData spd : whitelist) if(spe.getUuid().equals(spd.getId())) {
-                    spd.setlKU(spe.getName().asString());
+                    spd.setlKU(spe.getName().getString());
                     sMD = true;
                 }
                 if(sMD) markDirty();
@@ -100,7 +101,7 @@ public class DefenseComputerBlockEntity extends BlockEntity {
 
     public void onPlayerJoin(ServerPlayerEntity spe) {
         for(StoredPlayerData spd : whitelist) if(spe.getUuid().equals(spd.getId())) {
-            spd.setlKU(spe.getName().asString());
+            spd.setlKU(spe.getName().getString());
             markDirty();
         }
     }
@@ -109,9 +110,9 @@ public class DefenseComputerBlockEntity extends BlockEntity {
         if(!p.world.isClient()) {
             if(p.getUuid().equals(ownerID)) {
                 targeting = targeting.next();
-                p.sendMessage(new TranslatableText(targeting.getTranslationKey()).styled(s -> s.withColor(TextColor.parse("green"))), true);
+                p.sendMessage(Text.translatable(targeting.getTranslationKey()).styled(s -> s.withColor(TextColor.parse("green"))), true);
             } else {
-                p.sendMessage(new TranslatableText("msg.defense_systems.not_block_owner").styled(s -> s.withColor(TextColor.parse("red"))), true);
+                p.sendMessage(Text.translatable("msg.defense_systems.not_block_owner").styled(s -> s.withColor(TextColor.parse("red"))), true);
             }
         }
     }
@@ -158,11 +159,11 @@ public class DefenseComputerBlockEntity extends BlockEntity {
                 if (!cn.startsWith("!")) {
                     PlayerEntity target = ((ServerPlayerEntity) p).server.getPlayerManager().getPlayer(cn);
                     if (target != null && !isWhitelisted(target.getUuid())) {
-                        this.whitelist.add(new StoredPlayerData(target.getUuid(), target.getName().asString()));
-                        p.sendMessage(new TranslatableText("msg.defense_systems.added_to_wl", cn).styled(s -> s.withColor(TextColor.parse("green"))), true);
+                        this.whitelist.add(new StoredPlayerData(target.getUuid(), target.getName().getString()));
+                        p.sendMessage(Text.translatable("msg.defense_systems.added_to_wl", cn).styled(s -> s.withColor(TextColor.parse("green"))), true);
                         markDirty();
                     } else {
-                        p.sendMessage(new TranslatableText("msg.defense_systems.not_online_or_already_wl").styled(s -> s.withColor(TextColor.parse("red"))), true);
+                        p.sendMessage(Text.translatable("msg.defense_systems.not_online_or_already_wl").styled(s -> s.withColor(TextColor.parse("red"))), true);
                     }
                 } else if (cn.length() > 1) {
                     String withoutExclamation = cn.substring(1);
@@ -170,16 +171,16 @@ public class DefenseComputerBlockEntity extends BlockEntity {
                     for (StoredPlayerData spd : whitelist) {
                         if (spd.getlKU().equalsIgnoreCase(withoutExclamation)) {
                             this.whitelist.remove(i);
-                            p.sendMessage(new TranslatableText("msg.defense_systems.removed_from_wl", cn).styled(s -> s.withColor(TextColor.parse("green"))), true);
+                            p.sendMessage(Text.translatable("msg.defense_systems.removed_from_wl", cn).styled(s -> s.withColor(TextColor.parse("green"))), true);
                             markDirty();
                             break;
                         }
                         i++;
                     }
-                    p.sendMessage(new TranslatableText("msg.defense_systems.owner_or_not_wl").styled(s -> s.withColor(TextColor.parse("red"))), true);
+                    p.sendMessage(Text.translatable("msg.defense_systems.owner_or_not_wl").styled(s -> s.withColor(TextColor.parse("red"))), true);
                 }
             } else {
-                p.sendMessage(new TranslatableText("msg.defense_systems.not_block_owner").styled(s -> s.withColor(TextColor.parse("red"))), true);
+                p.sendMessage(Text.translatable("msg.defense_systems.not_block_owner").styled(s -> s.withColor(TextColor.parse("red"))), true);
             }
         }
     }

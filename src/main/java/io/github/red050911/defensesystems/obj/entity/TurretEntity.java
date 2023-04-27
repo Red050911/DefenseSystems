@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -42,7 +43,7 @@ public class TurretEntity extends MobEntity {
 
     @Override
     public boolean damage(DamageSource source, float amount) {
-        if(source.isOutOfWorld()) return super.damage(source, amount);
+        if(source.getType().msgId().equals("outOfWorld")) return super.damage(source, amount);
         else return false;
     }
 

@@ -1,9 +1,9 @@
 package io.github.red050911.defensesystems.obj.blockentity;
 
 import io.github.red050911.defensesystems.reg.ModBlockEntityTypes;
+import io.github.red050911.defensesystems.reg.ModDamageTypes;
 import io.github.red050911.defensesystems.reg.ModSoundEvents;
 import io.github.red050911.defensesystems.util.IDefenseTickable;
-import io.github.red050911.defensesystems.util.ModDamageSource;
 import io.github.red050911.defensesystems.util.Util;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.BlockState;
@@ -91,7 +91,7 @@ public class AnvilLauncherBlockEntity extends BlockEntity implements IDefenseTic
                                 break;
                             }
                             e.addVelocity(0, 100, 0);
-                            e.damage(new ModDamageSource("defense_systems_anvil_launcher_fling"), 19);
+                            e.damage(ModDamageTypes.getSource(world, ModDamageTypes.ANVIL_LAUNCHER), 19);
                         }
                         if(velocity < 1) break;
                     }

@@ -48,7 +48,7 @@ public class DefenseComputerBlock extends BlockWithEntity {
         if(!stack.isEmpty() && stack.hasCustomName()) {
             BlockEntity be = world.getBlockEntity(pos);
             if(be instanceof DefenseComputerBlockEntity) {
-                ((DefenseComputerBlockEntity) be).onClickedWithCustomName(player, stack.getName().asString());
+                ((DefenseComputerBlockEntity) be).onClickedWithCustomName(player, stack.getName().getString());
                 return ActionResult.SUCCESS;
             }
         } else {
@@ -73,7 +73,7 @@ public class DefenseComputerBlock extends BlockWithEntity {
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return super.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite()).with(TARGETING, false);
+        return super.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getHorizontalPlayerFacing().getOpposite()).with(TARGETING, false);
     }
 
     @Override

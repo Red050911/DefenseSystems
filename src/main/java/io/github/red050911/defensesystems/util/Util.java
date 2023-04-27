@@ -47,7 +47,7 @@ public class Util {
         double moveY = (entityPos.y - pos.y) / numIterations;
         double moveZ = (entityPos.z - pos.z) / numIterations;
         for(int i = 0; i < numIterations; i++) {
-            BlockPos bp = new BlockPos(Math.floor(pos.x), Math.floor(pos.y), Math.floor(pos.z));
+            BlockPos bp = new BlockPos((int) Math.floor(pos.x), (int) Math.floor(pos.y), (int) Math.floor(pos.z));
             if(w.getBlockState(bp).isOpaque() && !bp.equals(ourPos)) return false;
             pos = pos.add(moveX, moveY, moveZ);
         }
