@@ -7,8 +7,8 @@ Defense Systems is a Minecraft mod that adds more ways to defend locations, such
 |------------|--------------------|---------|------------------------|
 | 1.16.5     | 1.16.5-1.0.0       | Active  | 1                      |
 | 1.17.1     | N/A                | Planned | N/A                    |
-| 1.18.2     | 1.18.2-1.0.0       | Active  | 1                      |
-| 1.19.4     | 1.19.4-1.0.0       | Active  | 1                      |
+| 1.18.2     | 1.18.2-1.0.1       | Active  | 1                      |
+| 1.19.4     | 1.19.4-1.0.1       | Active  | 1                      |
 ## FAQ
 ### Will you support Forge?
 **Short answer**: No.\
