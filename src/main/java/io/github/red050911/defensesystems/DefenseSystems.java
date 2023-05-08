@@ -41,9 +41,11 @@ public class DefenseSystems implements ModInitializer {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             for(ServerWorld sw : server.getWorlds()) {
                 for(BlockEntityTickInvoker beTickInvoker : sw.blockEntityTickers) {
-                    BlockEntity be = sw.getBlockEntity(beTickInvoker.getPos());
-                    if(be instanceof DefenseComputerBlockEntity) {
-                        ((DefenseComputerBlockEntity) be).onPlayerJoin(handler.player);
+                    if(beTickInvoker.getPos() != null) {
+                        BlockEntity be = sw.getBlockEntity(beTickInvoker.getPos());
+                        if (be instanceof DefenseComputerBlockEntity) {
+                            ((DefenseComputerBlockEntity) be).onPlayerJoin(handler.player);
+                        }
                     }
                 }
             }
